@@ -1,3 +1,23 @@
+export type SectionData =
+  | Curso
+  | Noticia
+  | Enem
+  | BemEstar
+  | Vocacao
+  | Produtividade
+
+// Definindo um tipo de objeto para o data com as chaves específicas
+export interface Data {
+  cursos: Curso[]
+  noticias: Noticia[]
+  enem: Enem[]
+  bemEstar: BemEstar[]
+  vocacao: Vocacao[]
+  produtividade: Produtividade[]
+}
+
+export type SectionId = keyof Data
+
 // Tipagem para Cursos
 export type Curso = {
   id: string
@@ -46,6 +66,10 @@ export type Produtividade = {
   description: string
   link: string
 }
+
+export type GeneralData = Partial<
+  Curso & Noticia & Enem & BemEstar & Vocacao & Produtividade
+>
 
 export const sections = [
   { name: "Cursos", id: "cursos" },
