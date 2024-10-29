@@ -1,6 +1,6 @@
 import { Search } from "lucide-react"
 import { useAppContext } from "../../context/AppContext"
-import { useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 import { GeneralData, sections } from "../../db/data"
 import { getContents } from "../../utils/get-contents"
 import { GridCards } from "./grid-cards"
@@ -9,8 +9,11 @@ export function Main() {
   const { id } = useAppContext()
   const [contents, setContents] = useState<GeneralData[] | null>(null)
   const sectionName = sections.find((section) => section.id == id)
+  const [search, setSearch] = useState("")
 
-  // FAZER SEARCH BAR FUNCIONAR
+  function handleSearch(event: ChangeEvent<HTMLInputElement>) {
+    setSearch(event.target.value)
+  }
 
   useEffect(() => {
     const data = getContents(id)
@@ -30,10 +33,12 @@ export function Main() {
             <input
               type="text"
               placeholder="search..."
+              onChange={handleSearch}
               className="bg-transparent outline-none focus-visible:ring-0"
             />
           </div>
-          <GridCards contents={contents} />
+
+          <GridCards contents={contents} search={search} />
         </>
       ) : (
         <p>Nenhum conteúdo encontrado</p>
