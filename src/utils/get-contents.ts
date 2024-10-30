@@ -8,7 +8,7 @@ export function getContents(id: string): GeneralData[] | null {
       return data.noticias
     case "enem":
       return data.enem
-    case "bemEstar":
+    case "bem-estar":
       return data.bemEstar
     case "vocacao":
       return data.vocacao

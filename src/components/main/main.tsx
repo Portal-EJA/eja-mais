@@ -26,7 +26,9 @@ export function Main() {
     <div className="flex flex-col gap-3 w-full text-zinc-300">
       {contents ? (
         <>
-          <h2 className="text-3xl font-semibold">{sectionName?.name}</h2>
+          <h2 className="text-2xl lg:text-3xl font-semibold">
+            {sectionName?.name}
+          </h2>
           {/* search bar  */}
           <div className="bg-shark px-4 py-2 w-full flex gap-2 items-center justify-start rounded-lg">
             <Search />

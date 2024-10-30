@@ -2,5 +2,5 @@
 
 ### Future features
 
-- Colocar os icones de acordo com o tema,
 - Favicon
+- Criar dentro de GeneralData um array de tags e iterar por ele

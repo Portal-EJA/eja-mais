@@ -1,27 +1,15 @@
 import { useAppContext } from "../../context/AppContext"
 import { GeneralData } from "../../db/data"
-import { Tag } from "./tag"
 import { clsx } from "clsx"
 import { CardIcons } from "./card-icons"
+import { Tags } from "../../components/main/tags"
 
 interface CardProps {
   content: GeneralData
 }
 
-// Descobrir o tipo pelo content.type
-// Usar o context pra saber o tipo
-
 export function Card({ content }: CardProps) {
   const { id } = useAppContext()
-
-  // export const sections = [
-  //   { name: "Cursos", id: "cursos" },
-  //   { name: "ENEM", id: "enem" },
-  //   { name: "Bem-estar", id: "bem-estar" },
-  //   { name: "Notícias", id: "noticias" },
-  //   { name: "Vocação", id: "vocacao" },
-  //   { name: "Produtividade", id: "produtividade" }
-  // ]
 
   return (
     <a
@@ -36,18 +24,36 @@ export function Card({ content }: CardProps) {
         id === "produtividade" && "bg-productivityPink"
       )}
     >
-      <div className="p-4 flex flex-col gap-4">
-        <div className="flex gap-2 ">
-          <div className="bg-darkGray rounded-lg p-2">
-            <CardIcons id={id} />
+      <div className="p-4 flex flex-col gap-4 w-full">
+        <div className="flex flex-col gap-2 w-full">
+          <div className="flex gap-2 items-center justify-start">
+            <div className="bg-darkGray rounded-lg p-2">
+              <CardIcons id={id} />
+            </div>
+            <h3 className="font-bold text-md lg:text-lg truncate">
+              {content.title}
+            </h3>
           </div>
-          <h3 className="font-bold text-lg truncate">{content.title}</h3>
+          <div className="w-full whitespace-pre-line">
+            {content.description && (
+              <p
+                className={clsx(
+                  "font-semibold",
+                  id === "noticias" || id === "vocacao"
+                    ? "text-black"
+                    : "text-zinc-300"
+                )}
+              >
+                {content.description}
+              </p>
+            )}
+          </div>
         </div>
         {/* tags  */}
-        <Tag content={content.duration} />
+        <Tags content={content} />
       </div>
 
-      <div className="bg-white w-full font-bold text-black text-lg text-center py-2">
+      <div className="bg-zinc-300 w-full font-bold text-black text-lg text-center py-2 hover:bg-zinc-50 transition-all">
         <span>Acessar agora</span>
       </div>
     </a>
