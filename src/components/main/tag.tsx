@@ -7,7 +7,7 @@ export function Tag({ content }: { content: string | undefined }) {
   return (
     <div
       className={clsx(
-        "rounded-full max-w-24 px-4 text-center bg-black/20 border ",
+        "rounded-full max-w-28 px-4 text-center bg-black/20 border ",
         id === "noticias" || id === "vocacao"
           ? "bg-black/20 border border-black text-black"
           : "border-lightGray"

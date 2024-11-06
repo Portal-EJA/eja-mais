@@ -3,6 +3,7 @@ import { GeneralData } from "../../db/data"
 import { clsx } from "clsx"
 import { CardIcons } from "./card-icons"
 import { Tags } from "../../components/main/tags"
+import { useState } from "react"
 
 interface CardProps {
   content: GeneralData
@@ -11,11 +12,19 @@ interface CardProps {
 export function Card({ content }: CardProps) {
   const { id } = useAppContext()
 
+  const [open, setOpen] = useState(false)
+
+  function hanldeCard() {
+    setOpen(!open)
+    console.log(open)
+  }
+
   return (
-    <a
-      href={content.link}
+    <div
+      onClick={() => hanldeCard()}
       className={clsx(
-        "w-full rounded-xl  flex flex-col gap-2 truncate",
+        "w-full min-h-52 rounded-xl flex flex-col justify-between gap-2 truncate cursor-pointer",
+        !open && "max-h-52",
         id === "cursos" && "bg-coursePurple",
         id === "enem" && "bg-enemBlue",
         id === "bem-estar" && "bg-wellBeingGreen",
@@ -24,13 +33,28 @@ export function Card({ content }: CardProps) {
         id === "produtividade" && "bg-productivityPink"
       )}
     >
-      <div className="p-4 flex flex-col gap-4 w-full">
-        <div className="flex flex-col gap-2 w-full">
-          <div className="flex gap-2 items-center justify-start">
+      <div
+        className={clsx(
+          "p-4 flex flex-col gap-4 w-full min-h-32",
+          !open && "max-h-40"
+        )}
+      >
+        <div className="flex flex-col items-start gap-2 w-full h-full">
+          <div
+            className={clsx(
+              "flex gap-2 justify-start whitespace-pre-line",
+              open ? "items-start" : "items-center"
+            )}
+          >
             <div className="bg-darkGray rounded-lg p-2">
               <CardIcons id={id} />
             </div>
-            <h3 className="font-bold text-md lg:text-lg truncate">
+            <h3
+              className={clsx(
+                "font-bold text-md lg:text-lg",
+                open ? "line-clamp-3" : "line-clamp-1"
+              )}
+            >
               {content.title}
             </h3>
           </div>
@@ -39,6 +63,7 @@ export function Card({ content }: CardProps) {
               <p
                 className={clsx(
                   "font-semibold",
+                  open ? "line-clamp-4" : "line-clamp-2",
                   id === "noticias" || id === "vocacao"
                     ? "text-black"
                     : "text-zinc-300"
@@ -53,9 +78,13 @@ export function Card({ content }: CardProps) {
         <Tags content={content} />
       </div>
 
-      <div className="bg-zinc-300 w-full font-bold text-black text-lg text-center py-2 hover:bg-zinc-50 transition-all">
-        <span>Acessar agora</span>
-      </div>
-    </a>
+      <a
+        href={content.link}
+        target="_blank"
+        className="bg-zinc-300 w-full font-bold text-black text-lg text-center py-2 hover:bg-zinc-50 transition-all"
+      >
+        Acessar agora
+      </a>
+    </div>
   )
 }
