@@ -73,12 +73,12 @@ export type GeneralData = Partial<
 >
 
 export const sections = [
-  { name: "Cursos", id: "cursos" },
   { name: "ENEM", id: "enem" },
+  { name: "Cursos", id: "cursos" },
   { name: "Bem-estar", id: "bem-estar" },
-  { name: "Notícias", id: "noticias" },
   { name: "Vocação", id: "vocacao" },
-  { name: "Produtividade", id: "produtividade" }
+  { name: "Produtividade", id: "produtividade" },
+  { name: "Notícias", id: "noticias" }
 ]
 
 // Array de ENEM
@@ -133,50 +133,50 @@ const enem: Enem[] = [
     link: "https://youtube.com/playlist?list=PLQVUQftDIJQGKycxxgIW5YN64kkj2Jk52&si=DCTFP6sKB_G8Bk0g"
   },
   {
-    id: 1,
+    id: 8,
     title: "Curso Enem Gratuito",
     description:
       "Plataforma com cursos gratuitos voltados para a preparação para o Enem, sem burocracia e com acesso aberto.",
     link: "https://cursoenemgratuito.com.br/"
   },
   {
-    id: 1,
+    id: 9,
     title: "Aulão de redação ENEM - YouTube",
     description: "Dicas de preparação para o ENEM.",
     link: "https://youtu.be/2gJvhHx5EQY?si=KgLw3RVbowYRcY7P"
   },
   {
-    id: 1,
+    id: 10,
     title: "Como começar uma redação para o ENEM 2024 - YouTube",
     description: "Instruções para redação do ENEM.",
     link: "https://youtu.be/7uH7WUEyZJM?si=TkRgc5KCbNrTd9Pv"
   },
   {
-    id: 1,
+    id: 11,
     title: "Curso de Matemática Básica para o ENEM - YouTube",
     description: "Playlist de matemática básica voltada para o ENEM.",
     link: "https://youtube.com/playlist?list=PLrzB-zHlu3aD-mUeGQyB0YChHiSBfNTvB&si=4BQQo2SjnnuwkO_n"
   },
   {
-    id: 1,
+    id: 12,
     title: "Dicas de Redação para o ENEM - YouTube",
     description: "Dicas práticas para a redação do ENEM.",
     link: "https://youtu.be/Yt-R80zFwjY?si=2xGIrRckrKDJ8ONI"
   },
   {
-    id: 1,
+    id: 13,
     title: "Curso de Química para o ENEM - YouTube",
     description: "Playlist com conteúdo de química para o ENEM.",
     link: "https://youtube.com/playlist?list=PL8vXuI6zmpdj_YFEHTaBDccdSCC1LVNH0&si=6Ht2kDIR2tp_zIK6"
   },
   {
-    id: 1,
+    id: 14,
     title: "Biologia para o ENEM - Playlist YouTube",
     description: "Conteúdo completo de biologia para o ENEM.",
     link: "https://youtube.com/playlist?list=PL8vXuI6zmpdgu7TOyarRBU42MXOrUJnOS&si=JW3ewVUBS3_jqMEy"
   },
   {
-    id: 1,
+    id: 15,
     title: "Biologia: Revisão para o ENEM - Playlist YouTube",
     description: "Revisão completa de biologia para o ENEM.",
     link: "https://youtube.com/playlist?list=PLdkZd7NEhSekPPX76_B7SI5R3J2aiQoTO&si=uhw5TZOsfkyVaEJb"
@@ -192,34 +192,34 @@ const bemEstar: BemEstar[] = [
     link: "https://youtu.be/I_TOJOu_YJY?si=-wbPO2kjPQYcnSQW"
   },
   {
-    id: 1,
+    id: 2,
     title: "Mindfulness para o Dia a Dia - YouTube",
     description: "Práticas de mindfulness para a rotina diária.",
     link: "https://youtu.be/MpF-aZonILg?si=X4-hVrhXyt_CkezU"
   },
   {
-    id: 2,
+    id: 3,
     title: "4 passos para evitar o NERVOSISMO",
     description:
       "Dicas práticas para reduzir o nervosismo em momentos importantes.",
     link: "https://youtu.be/18uH7ppPGUg?si=naInU18XOBZFiLkd"
   },
   {
-    id: 2,
+    id: 4,
     title: "Checklist de itens indispensáveis para a prova do ENEM",
     description:
       "Checklist com itens essenciais para levar no dia da prova do ENEM.",
     link: "https://youtu.be/RwoHzjwnUPE?si=obd0ksHxRh3wXxHH"
   },
   {
-    id: 2,
+    id: 5,
     title: "O que é uma alimentação saudável?",
     description:
       "Explicação sobre como ter uma alimentação equilibrada e saudável.",
     link: "https://youtu.be/ywUuoTJJznA?si=dfWrENDspOn0Fxut"
   },
   {
-    id: 2,
+    id: 6,
     title: "O que pode aumentar o nosso bem-estar?",
     description: "Dicas para melhorar o bem-estar e a qualidade de vida.",
     link: "https://youtu.be/xvOfYLcTM3k?si=9ZHQ2il3WzfVU40i"
@@ -237,9 +237,17 @@ const vocacao: Vocacao[] = [
   },
   {
     id: 2,
-    title: "Guia de Profissões ALTERAR",
-    description: "Entenda mais sobre as diferentes carreiras e como ingressar.",
-    link: "https://exemplo.com/guia-de-profissoes"
+    title: "Guia das Profissões - Guia da Carreira",
+    description:
+      "Blog com um guia completo sobre as profissões, incluindo informações sobre áreas de atuação, mercado de trabalho e expectativas salariais.",
+    link: "https://www.guiadacarreira.com.br/blog/guia-das-profissoes"
+  },
+  {
+    id: 3,
+    title: "Carreiras e Profissões - Quero Bolsa",
+    description:
+      "Plataforma que reúne informações sobre diversas carreiras e profissões, com detalhes sobre salários, mercado de trabalho e cursos.",
+    link: "https://querobolsa.com.br/carreiras-e-profissoes/todas"
   }
 ]
 

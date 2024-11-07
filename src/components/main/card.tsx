@@ -21,7 +21,6 @@ export function Card({ content }: CardProps) {
 
   return (
     <div
-      onClick={() => hanldeCard()}
       className={clsx(
         "w-full min-h-52 rounded-xl flex flex-col justify-between gap-2 truncate cursor-pointer",
         !open && "max-h-52",
@@ -34,6 +33,7 @@ export function Card({ content }: CardProps) {
       )}
     >
       <div
+        onClick={() => hanldeCard()}
         className={clsx(
           "p-4 flex flex-col gap-4 w-full min-h-32",
           !open && "max-h-40"

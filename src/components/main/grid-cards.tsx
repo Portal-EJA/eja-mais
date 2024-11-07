@@ -17,10 +17,19 @@ export function GridCards({ contents, search }: GridCardProps) {
       : contents
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-start justify-center mt-5">
-      {filteredContents.map((content) => (
-        <Card key={content.id} content={content} />
-      ))}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-4 items-start justify-center mt-5">
+      {filteredContents.length === 0 ? (
+        <p className="text-zinc-400 font-extralight">
+          Nenhum conteúdo encontrado.{" "}
+          <span className="text-zinc-300 font-light">
+            Lembre de usar acentos na pesquisa!
+          </span>
+        </p>
+      ) : (
+        filteredContents.map((content) => (
+          <Card key={content.id} content={content} />
+        ))
+      )}
     </div>
   )
 }

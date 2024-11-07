@@ -10,7 +10,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined)
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
-  const [id, setId] = useState<string>("cursos")
+  const [id, setId] = useState<string>("enem")
 
   return (
     <AppContext.Provider value={{ id, setId }}>{children}</AppContext.Provider>
